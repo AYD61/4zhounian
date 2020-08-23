@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>LY❤LHX</title>
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<style type="text/css">
+			body{
+				margin: 0;
+				background-color: #000;
+			}
+			.cont{
+				height: 99vh;
+			}
+			.con{
+				position: absolute;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100vw;
+				height: 99vh;
+				background-color: #000;
+				flex-direction: column;
+				-webkit-filter: contrast(30);
+				filter: contrast(30);
+				z-index: 2;
+				opacity: 1;
+				transition: all 1s;
+			}
+			.con.hide{
+				opacity: 0;
+				/* display: none; */
+			}
+			.drop{
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				background-color: #fff;
+				border-radius: 50%;
+				-webkit-filter: blur(26px);
+				filter: blur(26px);
+				opacity: 0;
+			}
+			.drop.ani{
+				animation: drop 2.3s linear infinite;
+			}
+			.drop.ani:nth-child(2){
+				/* transform: translateY(-80px); */
+				animation-delay: 0.5s;
+			}
+			.drop.ani:nth-child(3){
+				/* transform: translateY(-130px); */
+				animation-delay: 0.75s;
+			}
+			.cton{
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				background-color: #fff;
+				border-radius: 50%;
+				-webkit-filter: blur(26px);
+				filter: blur(26px);
+			}
+			span{
+				position: absolute;
+				color: #000;
+				font-size: 20px;
+			}
+			
+			@keyframes drop{
+				0%{
+					transform: scale(0.7) translateY(-600%);
+					opacity: 0;
+				}
+				50%{
+					transform: scale(0.4) translateY(-80%);
+					opacity: 1;
+				}
+				100%{
+					transform: scale(0.34) translateY(0px);
+					/* opacity: 1; */
+				}
+			}
+			
+			.ax{
+				position: absolute;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				width: 100vw;
+				height: 99vh;
+				z-index: 1;
+			}
+			.cccc{
+				width: 150px;
+				height: 150px;
+				position: relative;
+				transform: rotate(45deg) ;
+				transition: all 1s;
+			}
+			.ax.bx .drop_ax{
+				background-color: #ff557f;
+			}
+			.ax.bx span#lxh{
+				color: #fff;
+			}
+			.ax.bx .cccc{
+				transform: rotate(45deg) translateY(10px) translateX(10px);
+			}
+			.drop_ax{
+				position: absolute;
+				top: 35px;
+				left: 35px;
+				width: 80px;
+				height: 80px;
+				background-color: #fff;
+				border-radius: 50%;
+				transition: all 1s;
+			}
+			.ax.bx .drop_ax{
+				top: 35px;
+				left: 35px;
+			}
+			.ax.bx .drop_ax:nth-child(1){
+				border-radius: 0 0 10% 0;
+			}
+			.ax.bx .drop_ax:nth-child(2){
+				transform: translateX(-40px);
+			}
+			.ax.bx .drop_ax:nth-child(3){
+				transform: translateY(-40px);
+			}
+			.ax p{
+				position: absolute;
+				bottom: 10%;
+				color: #fff;
+				font-size: 20px;
+				opacity: 0;
+				transition: all 1s;
+			}
+			.ax.bx p{
+				opacity: 1;
+				bottom: 20%;
+			}
+			span#lxh{
+				opacity: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="con">
+				<div class="drop"></div>
+				<div class="drop"></div>
+				<div class="drop"></div>
+				<div class="cton"></div>
+				<span id="wz">0%</span>
+			</div>
+			<div class="ax">
+				<div class="cccc">
+					<div class="drop_ax"></div>
+				<div class="drop_ax"></div>
+				<div class="drop_ax"></div>
+				</div>
+				<span id="lxh">LY ❤ LHX</span>
+				<p>4周年快乐？</p>
+			</div>
+		</div>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".drop").addClass("ani");
+				$(".con span#wz").html("0%");
+				let jd=0;
+				function c1(){
+					if(jd<=100){
+						$(".con span#wz").html(jd+"%");
+						jd++;
+					}else{
+						$(".drop").removeClass("ani");
+						$(".con").css({display: "none"});
+						$(".ax").addClass("bx");
+						$(".ax span#lxh").animate({opacity: "1"},1000);
+						window.clearTimeout(t1);
+					}
+				}
+				var t1=setInterval(c1,50);
+			})
+		</script>
+	</body>
+</html>
